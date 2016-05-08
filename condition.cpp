@@ -22,7 +22,7 @@ int main(int argc, char **argv)
 	{
 		arg[i]=atoi(argv[i+1]);
 	}
-	cout<<function(arg);	
+	cout<<function(arg)<<endl;
 
 	return 0;
 }
