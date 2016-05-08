@@ -126,7 +126,7 @@ char solve_or(char a, char b, char *file_source) //solves or sentence, based on 
 	}
 }
 
-char solve_task(int i, char a, char b, char **sources) //solves task, where a is the first argument, b is the second argument, i is the number of operand, 
+char solve_task(int i, char a, char b, char **sources) //solves task, where a is the first argument, b is the second argument, i is the number of operator, 
 													//and sources is the array with the names of files with definitions of logical operators
 {
 	if(i==1) return solve_or(a, b, sources[0]); //i=1 that means it's or sentence, and the name of file with definition for it  is in sources[0]
@@ -140,7 +140,7 @@ char get_task(char **sources) //creates random task to solve (solution in the va
 	char solution; 
 	char prev_sol=' '; //previous solution, we need it to solve the task 
 	int i; //counter 
-	for(i=0; i<11; i++) //creating random task containging at most 10 characters 
+	for(i=0; i<11; i++) //creating random task containing at most 10 characters
 	{
 		int b=rand()%4; //getting random number from 0-3
 		if(b==0) //0 is for argument 0 
@@ -178,12 +178,12 @@ char get_task(char **sources) //creates random task to solve (solution in the va
 				{
 					a[i]='~';
 					get_arg(++i, a); //getting argument for ~
-					solution=solve_not(a[i], sources[3]); //solving not, the name of the file with definition of this operand is in the sources[3]
+					solution=solve_not(a[i], sources[3]); //solving not, the name of the file with definition of this operator is in the sources[3]
 				}
 			}
 		}
 		int o;
-		if(i<9) //if it's not the end of the whole task, we get another operand to conncet tasks 
+		if(i<9) //if it's not the end of the whole task, we get another operator to conncet tasks 
 		{
 			o=get_op(++i, a);
 			
