@@ -1,0 +1,21 @@
+#!/bin/bash
+
+one=( 1 1 7 1)
+two=( 2 3 5 2)
+three=( 2 2 2 0)
+four=( 4 5 4 8)
+five=( 8 7 8 14)
+six=( 14 3 14 6)
+result=( 1 -2 2 -1)
+
+for ind in `seq 0 3`; do
+        out=`./a.out ${one[$ind]} ${two[$ind]} ${three[$ind]} ${four[$ind]} ${five[$ind]} ${six[$ind]}`
+        if [ "$out" != "${result[ind]}" ]
+        then
+                echo "input: " ${one[$ind]} ${two[$ind]} ${three[$ind]} ${four[$ind]} ${five[$ind]} ${six[$ind]}
+                echo "output actual: " $out
+                echo "output expected: " ${result[$ind]}
+        else
+                echo "Results are as expected. "
+        fi
+done
