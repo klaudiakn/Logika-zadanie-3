@@ -234,7 +234,7 @@ void game(string sources[4]) { //the main function
 		{
 			cout<<"Dobrze! Dostajesz 1 punkt!"<<endl;
 			points++;
-			sleep(2000);
+			sleep(3);
 		}
 		else //if it's incorrect 
 		{
@@ -246,7 +246,7 @@ void game(string sources[4]) { //the main function
 				cout<<"Aby zagrac jeszcze raz nacisnij p, aby wyjsc z gry nacisnij q. "<<endl;
 				return;
 			}
-			sleep(2000);
+			sleep(3);
 		}
 	
 	}
@@ -285,7 +285,7 @@ int main(int argc, char** argv) {
 		sources[3]="not.txt";
 		}
 	}
-
+	system("clear");
 	cout << "Witaj w grze logicznej!" << endl;
 	cout << "Nacisnij q, aby wyjsc, lub p aby grac." << endl;	
 	while(1) {
