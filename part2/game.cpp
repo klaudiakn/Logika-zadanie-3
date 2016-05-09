@@ -6,6 +6,7 @@
 #include <time.h>
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 using namespace std;
 const int n=20;
 
@@ -127,14 +128,14 @@ char solve_or(char a, char b, string file_source) //solves or sentence, based on
 	}
 }
 
-char solve_task(int i, char a, char b, string *sources) //solves task, where a is the first argument, b is the second argument, i is the number of operand, 
+char solve_task(int i, char a, char b, string sources[4]) //solves task, where a is the first argument, b is the second argument, i is the number of operand, 
 													//and sources is the array with the names of files with definitions of logical operators
 {
 	if(i==1) return solve_or(a, b, sources[0]); //i=1 that means it's or sentence, and the name of file with definition for it  is in sources[0]
 	if(i==2) return solve_and(a, b, sources[1]); //i=2 is for and sentence, the name of the file in sources[1]
 	if(i==3) return solve_impl(a, b, sources[2]); //i=3 if for implication, the name of the file in sources[2]
 }
-char get_task(string *sources) //creates random task to solve (solution in the variable 'solution')
+char get_task(string sources[4]) //creates random task to solve (solution in the variable 'solution')
 {
 	srand(time(NULL));
 	char a[n];
@@ -195,13 +196,17 @@ char get_task(string *sources) //creates random task to solve (solution in the v
 		prev_sol=solution; //chaning previous task to our current solution 
 	}
 	cout<<"Twoje zadanie to: "<<a<<endl; //write the task 
+	for(int j=0; j<=i; j++)                          //write the task
+                cout<<a[j];
+        cout<<endl;
+
 	return solution; //return correct solution 
 }
 
 
 
-void game(string *sources) { //the main function
-	system("cls");
+void game(string sources[4]) { //the main function
+	system("clear");
 	cout<<"Zaczynamy gre. Dostaniesz 8 zadan. Mozesz pomylic sie tylko 2 razy. (Masz 2 'zycia')."<<endl;
 	cout<<"Aby odpowiedziec poprawnie na pytanie musisz znac zasady logiki trojwartosciowej."<<endl;
 	cout<<"Jedynki oznaczaja prawde, zera falsz, a X- nieznane."<<endl;
@@ -214,7 +219,7 @@ void game(string *sources) { //the main function
 	int points=0;
 	for(int j=0; j<8; j++) //there are 8 tasks
 	{
-		system("cls");
+		system("clear");
 		cout<<"Punkty: "<<points<<"  Zycia: "<<2-counter<<endl;
 		char b=get_task(sources); //getting task to solve, the correct answer is in the variable b 
 		char answer; //answer given by the player 
@@ -245,7 +250,7 @@ void game(string *sources) { //the main function
 		}
 	
 	}
-	system("cls");
+	system("clear");
 	cout<<"Gratulacje wygrales! Twoj wynik to "<<points<<" punktow!"<<endl;
 	cout<<"Aby zagrac jeszcze raz nacisnij p, aby wyjsc z gry nacisnij q."<<endl;
 	
@@ -255,7 +260,7 @@ void game(string *sources) { //the main function
 
 int main(int argc, char** argv) {
 	char input = 0;
-	string *sources;
+	string sources[4];
 	if(argc==9) //if parameters are given, we put them into sources array, in which sources[0] is for or, sources[1] is for and, sources[2] is for implication, sources[3] is for not 
 	{
 		for(int j=1; j<argc; j++) //reading parameters given in the command line to the array sources 
