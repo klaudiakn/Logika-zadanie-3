@@ -8,7 +8,7 @@
 #include <string.h>
 #include <stdlib.h>
 using namespace std;
-const int n=20;
+const int n=11;
 
 bool cmp(char *a, string b) //returns true if two strings are equal 
 {
@@ -196,9 +196,6 @@ char get_task(string sources[4]) //creates random task to solve (solution in the
 		prev_sol=solution; //chaning previous task to our current solution 
 	}
 	cout<<"Twoje zadanie to: "<<a<<endl; //write the task 
-	for(int j=0; j<=i; j++)                          //write the task
-                cout<<a[j];
-        cout<<endl;
 
 	return solution; //return correct solution 
 }
