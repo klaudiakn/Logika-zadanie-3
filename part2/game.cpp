@@ -210,7 +210,8 @@ void game(string sources[4]) { //the main function
 	cout<<"'~' oznacza negacje i neguje jedynie znak stojacy bezposrednio za nim, 'v' oznacza lub, a '>' implikacje."<<endl;
 	cout<<"Kolejnosc wykonywania zadan zalezy od nawiasow, gdy ich nie ma, wykonuj od lewej do prawej. "<<endl;
 	cout<<"Jako odpowiedz masz podac '0', '1' lub 'X' i potwierdzic enterem, inne odpowiedzi beda ignorowane."<<endl;
-	cout<<"Wcisni dowolny klawisz, aby rozpoczac"<<endl;
+	cout<<"Wcisnij dowolny klawisz, aby rozpoczac."<<endl;
+	getchar();
 	getchar();
 	int counter=0;
 	int points=0;
